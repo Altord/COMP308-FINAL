@@ -8,6 +8,8 @@ const schema = require('./src/schema/authSchema');
 const resolvers = require('./src/resolvers/authResolvers');
 const VitalSignRoute = require('./src/route/vitalSignRoutes');
 const UserRoute = require('./src/route/userRoutes');
+const TipsRoute = require('./src/route/tipsRoute');
+
 
 
 
@@ -37,6 +39,8 @@ app.use(express.json());
 // Route to fetch previous vital signs for a user
 app.use("/vitalSigns", VitalSignRoute);
 app.use("/user", UserRoute);
+app.use("/tips", TipsRoute);
+
 
 const graphqlHandler = createHandler({
   schema,
