@@ -8,6 +8,9 @@ import {
 import LoginForm from "./components/auth/LoginForm";
 import RegisterForm from "./components/auth/RegisterForm";
 import NurseDashboard from "./pages/nurse/NurseDashboard";
+import EnterVitals from './components/nurse/EnterVitals';
+import MotivationalTips from './components/nurse/MotivationalTip';
+import ViewVitals from './components/nurse/viewVitals';
 import PatientDashboard from "./pages/patient/PatientDashboard";
 import { isLogged, getUserType, logout } from "./utils/auth";
 import ApolloProvider from "./ApolloProvider";
@@ -65,6 +68,10 @@ function App() {
             </PrivateRoute>
           }
         />
+        <Route path="/" element={<NurseDashboard />} />
+        <Route path="/enter-vitals" element={<EnterVitals />} />
+        <Route path="/motivational-tips" element={<MotivationalTips />} />
+        <Route path="/view-vitals" element={<ViewVitals />} />
         <Route
           path="/patient-dashboard"
           element={

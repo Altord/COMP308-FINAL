@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import "bootstrap/dist/css/bootstrap.min.css";
+
 
 const NurseDashboard = () => {
   return (
@@ -10,7 +12,7 @@ const NurseDashboard = () => {
           <Link to="/enter-vitals">Enter Vital Signs</Link>
         </li>
         <li>
-          <Link to="/previous-visits">Access Previous Visit Information</Link>
+          <Link to="/view-vitals">View Patient Vitals</Link>
         </li>
         <li>
           <Link to="/motivational-tips">Send Motivational Tips</Link>

@@ -6,6 +6,10 @@ const cors = require('cors');
 const { ruruHTML } = require('ruru/server');
 const schema = require('./src/schema/authSchema');
 const resolvers = require('./src/resolvers/authResolvers');
+const VitalSignRoute = require('./src/route/vitalSignRoutes');
+const UserRoute = require('./src/route/userRoutes');
+
+
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI)
@@ -30,6 +34,9 @@ const corsOptions = {
 // Use CORS with options
 app.use(cors(corsOptions));
 app.use(express.json());
+// Route to fetch previous vital signs for a user
+app.use("/vitalSigns", VitalSignRoute);
+app.use("/user", UserRoute);
 
 const graphqlHandler = createHandler({
   schema,
@@ -44,6 +51,7 @@ app.get('/', (_req, res) => {
   res.type('html');
   res.end(ruruHTML({ endpoint: '/graphql' }));
 });
+
 
 app.listen(port, () => {
   console.log(`Authentication Service listening at http://localhost:${port}`);
