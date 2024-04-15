@@ -39,8 +39,8 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 const graphqlHandler = createHandler({
-  schema: [schema, emergencySchema],
-  rootValue: [resolvers, emergencyResolvers],
+  schema: schema,
+  rootValue: resolvers,
 });
 
 // Methods on `/graphql`
