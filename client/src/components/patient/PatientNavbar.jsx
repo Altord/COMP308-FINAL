@@ -7,16 +7,22 @@ const NavBar = () => {
       <Container>
         <Navbar.Brand
           className="text-danger text-center fw-bold fst-italic"
-          href="#emergency"
+          href="/patient-dashboard/emergency"
         >
           Request Emergency Assistance
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav>
-            <Nav.Link href="#fitness-games">Fitness Games</Nav.Link>
-            <Nav.Link href="#daily-checklist">Daily Checklist</Nav.Link>
-            <Nav.Link href="#book-appointment">Covid-19 Checklist</Nav.Link>
+            <Nav.Link href="/patient-dashboard/fitness-games">
+              Fitness Games
+            </Nav.Link>
+            <Nav.Link href="/patient-dashboard/daily-checklist">
+              Daily Checklist
+            </Nav.Link>
+            <Nav.Link href="/patient-dashboard/covid-checklist">
+              Covid-19 Checklist
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

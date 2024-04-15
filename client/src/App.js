@@ -12,6 +12,10 @@ import PatientDashboard from "./pages/patient/PatientDashboard";
 import { isLogged, getUserType, logout } from "./utils/auth";
 import ApolloProvider from "./ApolloProvider";
 import { Button } from "react-bootstrap";
+import EmergencyAlert from "./components/patient/EmergencyAlert";
+import DailyChecklist from "./components/patient/DailyChecklist";
+import FitnessGames from "./components/patient/FitnessGames";
+import CovidChecklist from "./components/patient/CovidChecklist";
 
 function App() {
   const [userType, setUserType] = useState(getUserType());
@@ -72,7 +76,24 @@ function App() {
               <PatientDashboard />
             </PrivateRoute>
           }
-        />
+        >
+          <Route
+            path="/patient-dashboard/covid-checklist"
+            element={<CovidChecklist />}
+          />
+          <Route
+            path="/patient-dashboard/emergency"
+            element={<EmergencyAlert />}
+          />
+          <Route
+            path="/patient-dashboard/daily-checklist"
+            element={<DailyChecklist />}
+          />
+          <Route
+            path="/patient-dashboard/fitness-games"
+            element={<FitnessGames />}
+          />
+        </Route>
         <Route
           path="*"
           element={
@@ -95,7 +116,7 @@ function App() {
             borderTop: "1px solid #ccc",
           }}
         >
-          <Button variant="primary" onClick={handleLogout}>
+          <Button variant="danger" onClick={handleLogout}>
             Logout
           </Button>
         </div>

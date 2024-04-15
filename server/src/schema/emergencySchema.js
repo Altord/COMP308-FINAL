@@ -8,6 +8,18 @@ const schema = buildSchema(`
     createdAt: String!
   }
 
+  type User {
+    id: ID!
+    username: String!
+    password: String!
+    userType: UserType!
+  }
+
+  enum UserType {
+    NURSE
+    PATIENT
+  }
+
   input EmergencyInput {
     emergency: String!
     patientId: ID!

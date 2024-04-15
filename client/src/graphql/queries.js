@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const GET_CURRENT_USER = gql`
   query GetCurrentUser {
@@ -6,6 +6,20 @@ export const GET_CURRENT_USER = gql`
       id
       username
       userType
+    }
+  }
+`;
+
+export const GET_ALL_EMERGENCIES = gql`
+  query GetAllEmergencies {
+    getAllEmergencies {
+      id
+      emergency
+      patient {
+        id
+        // Include other user properties if needed
+      }
+      createdAt
     }
   }
 `;

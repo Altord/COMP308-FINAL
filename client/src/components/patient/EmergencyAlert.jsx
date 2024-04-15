@@ -1,10 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { useMutation } from "@apollo/client";
+import { POST_EMERGENCY } from "../../graphql/mutations";
 
 const EmergencyAlert = () => {
-  const sent = false;
+  const [sent, setSent] = useState(false);
+  const [emergencyDescription, setEmergencyDescription] = useState("");
+
+  const [postEmergency] = useMutation(POST_EMERGENCY);
+
+  const handleEmergencySubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      await postEmergency({
+        variables: {
+          emergency: emergencyDescription,
+          patientId: "661c81eddf2b3350e7b4728e", //test
+        },
+      });
+      setSent(true);
+    } catch (error) {
+      console.error("Error posting emergency:", error);
+    }
+  };
+
   return (
     <div>
       <Container className="d-flex justify-content-center w-100">
@@ -28,10 +50,16 @@ const EmergencyAlert = () => {
               </div>
             </>
           ) : (
-            <Form>
+            <Form onSubmit={handleEmergencySubmit}>
               <p>Please briefly describe your emergency.</p>
               <Form.Group className="d-flex align-items-center">
-                <Form.Control as="textarea" rows={6} id="emergency" />
+                <Form.Control
+                  as="textarea"
+                  rows={6}
+                  id="emergency"
+                  value={emergencyDescription}
+                  onChange={(e) => setEmergencyDescription(e.target.value)}
+                />
               </Form.Group>
               <div className="text-center">
                 <Button className="my-5" variant="dark" type="submit">
