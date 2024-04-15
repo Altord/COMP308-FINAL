@@ -28,10 +28,10 @@ function CovidChecklist() {
   ];
   return (
     <Container className="d-flex justify-content-center w-25">
-      <div style={{ display: "block", width: 700, padding: 30 }}>
-        <h4>
+      <div>
+        <h2 className="text-center">
           <span className="fw-bold text-danger">COVID-19</span> Checklist
-        </h4>
+        </h2>
         <Form>
           {symptoms.map((symptom, index) => (
             <Form.Group key={index} className="d-flex align-items-center">
@@ -39,9 +39,11 @@ function CovidChecklist() {
               <Form.Label>{symptom.symptom}</Form.Label>
             </Form.Group>
           ))}
-          <Button className="my-5" variant="dark" type="submit">
-            Submit
-          </Button>
+          <div className="text-center">
+            <Button className="my-5" variant="dark" type="submit">
+              Submit
+            </Button>
+          </div>
         </Form>
       </div>
     </Container>
