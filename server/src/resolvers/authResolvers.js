@@ -93,7 +93,7 @@ const resolvers = {
     }
   },
   generateMedicalConditionsList: async ({ symptoms }) => {
-    // Logic to generate a list of possible medical conditions based on symptoms
+    // TODO
     
   },
 };
