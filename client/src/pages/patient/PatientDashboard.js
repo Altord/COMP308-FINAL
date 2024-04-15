@@ -1,24 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import CovidChecklist from "../../components/patient/CovidChecklist";
+import PatientNavbar from "../../components/patient/PatientNavbar";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const PatientDashboard = () => {
   return (
     <div className="patient-dashboard">
-      <h1>Patient Dashboard</h1>
-      <ul>
-        <li>
-          <Link to="/emergency-alert">Create Emergency Alert</Link>
-        </li>
-        <li>
-          <Link to="/fitness-games">Access Fitness Games</Link>
-        </li>
-        <li>
-          <Link to="/daily-info">Enter Daily Information</Link>
-        </li>
-        <li>
-          <Link to="/symptoms-checklist">Symptoms Checklist</Link>
-        </li>
-      </ul>
+      <PatientNavbar />
+      <CovidChecklist />
     </div>
   );
 };
